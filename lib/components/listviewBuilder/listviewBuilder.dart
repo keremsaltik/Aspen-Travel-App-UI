@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_app/views/PlaceDetails/modelView/placeDetails_ViewModel.dart';
 
 import '../../utilities/screen_utilities.dart';
 import '../../views/MainScreen/data/mainscreen_data.dart';
@@ -172,7 +173,19 @@ class Listviewbuilder extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.asset(data?['image']),
+        Stack(
+          alignment: AlignmentDirectional.bottomEnd,
+          children: [
+            Image.asset(data?['image']),
+            Card(
+              child: TextWidget(
+                text: '4N/5D',
+                fontSize: 10,
+              ),
+              color: Color.fromRGBO(58, 84, 79, 100),
+            ),
+          ],
+        ),
         Padding(padding: EdgeInsets.only(top: 6)),
         TextWidget(
           text: data?['title'],
