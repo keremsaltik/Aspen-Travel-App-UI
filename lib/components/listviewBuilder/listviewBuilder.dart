@@ -7,6 +7,8 @@ import '../../views/MainScreen/modelView/mainscreen_viewmodel.dart';
 import '../../views/PlaceDetails/view/place_details_view.dart';
 
 import '../button/textButton.dart';
+import '../card/popular_places_card.dart';
+import '../card/recommended_places_card.dart';
 import '../text/text.dart';
 
 class Listviewbuilder extends StatelessWidget {
@@ -99,115 +101,5 @@ class Listviewbuilder extends StatelessWidget {
         },
       );
     }
-  }
-
-  Widget buildPopularPlaceCardContent(
-      BuildContext context, Map<String, dynamic>? data) {
-    return Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(
-            top: ScreenUtils.scaleHeight(context, 0.2),
-            left: 10,
-          ),
-          width: 90,
-          height: 23,
-          decoration: BoxDecoration(
-            color: Color.fromRGBO(72, 86, 82, 1),
-            borderRadius: BorderRadius.circular(59),
-          ),
-          child: Center(
-            child: TextWidget(
-              // Card title
-              text: data?['title'],
-              fontSize: 12,
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 5, right: 25),
-          child: data != null
-              ? Container(
-                  width: 52,
-                  height: 24,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(72, 86, 82, 1),
-                    borderRadius: BorderRadius.circular(59),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        size: 16,
-                        Icons.star,
-                        color: Colors.yellow,
-                      ),
-                      TextWidget(
-                        text: data['point'],
-                        fontSize: 10,
-                      )
-                    ],
-                  ),
-                )
-              : Row(
-                  children: [
-                    Icon(
-                      Icons.trending_up,
-                      size: 9,
-                    ),
-                    Padding(padding: EdgeInsets.only(left: 5)),
-                    TextWidget(
-                      text: 'Hot deal',
-                      textColor: Colors.black,
-                      fontSize: 10,
-                    )
-                  ],
-                ),
-        ),
-      ],
-    );
-  }
-
-  Widget buildDefaultCardContent(
-      BuildContext context, Map<String, dynamic>? data) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Stack(
-          alignment: AlignmentDirectional.bottomEnd,
-          children: [
-            Image.asset(data?['image']),
-            Card(
-              child: TextWidget(
-                text: '4N/5D',
-                fontSize: 10,
-              ),
-              color: Color.fromRGBO(58, 84, 79, 100),
-            ),
-          ],
-        ),
-        Padding(padding: EdgeInsets.only(top: 6)),
-        TextWidget(
-          text: data?['title'],
-          textColor: Color(0xff232323),
-          fontSize: 14,
-          fontWeight: FontWeight.bold,
-        ),
-        Row(
-          children: [
-            Icon(
-              Icons.trending_up,
-              size: 9,
-            ),
-            Padding(padding: EdgeInsets.only(left: 5)),
-            TextWidget(
-              text: 'Hot deal',
-              textColor: Colors.black,
-              fontSize: 10,
-            ),
-          ],
-        ),
-      ],
-    );
   }
 }
