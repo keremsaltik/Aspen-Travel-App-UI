@@ -10,5 +10,7 @@ https://www.figma.com/community/file/1091615514005406765/aspen-travel-app-explor
 
 ## Some Informations
 
-This project made for improve widget skills. 
+This project made for improve widget skills.
+It is only a widget app. It does not include functionality outside of page routing.
+Worked make for clean widget architecture.
 You should access codes from subfolders of lib folder.
